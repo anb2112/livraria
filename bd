@@ -1,0 +1,113 @@
+create schema if not exists livraria default character set utf8;
+use livraria;
+
+
+create table if not exists livraria. aluno(
+	id integer not null,
+    nome varchar(255) not null,
+    email varchar(255) not null,
+    telefone varchar(14),
+    altura decimal(3,2),
+    primary key (id)
+    ) engine=InnoDB;
+    
+select nome, email from aluno;
+select * from aluno;
+insert into aluno (id, nome, email, telefone, altura)
+			values (1, 'joao pimentel', 'jpapim@gamil.com', '(61)98787-9987', 1,74);
+
+select * from aluno;
+
+drop table aluno;
+
+
+
+
+
+
+create table if not exists livraria . aluno(
+	id integer not null auto_increment,
+    nome varchar(255) not null,
+    email varchar(255) not null,
+    telefone varchar(14),
+    altura decimal(3,2),
+    primary key (id)
+    ) engine = InnoDB;
+    
+    
+insert into aluno (id, nome, email, telefone, altura)
+			values
+            (null, 'joao', 'jpapi@gmail.com','(61)98452-4524',1,74),
+            (null, 'maria', 'maria@gmail.com','(61)98484-4574',1,70),
+            (null, 'carlos', 'carlos@gmail.com','(61)98438-4572',1,60),
+            (null, 'daniel', 'daniel@gmail.com','(61)98444-4529',1,50),
+            
+  
+
+
+
+
+select * from aluno;
+
+create table if not exists livraria.professor(
+	id integer not null auto_increment,
+    nome varchar(255) not null,
+    email varchar(255) not null,
+    telefone varchar(14),
+    altura decimal(3,2),
+    primary key (id)
+    ) engine = InnoDB;
+    
+insert into professor (id, nome, email, telefone, altura)
+			values
+            (null,'maria', 'mariasilva@gmail.com', '(61)98546-1478',1,60),
+			(null,'renato', 'reantosilva@gmail.com', '(61)98716-1478',1,60);
+select * from professor;
+
+
+
+
+
+
+
+select * from aluno, professor;
+
+select aluno.nome, professor.nome from aluno, professor;
+
+select a.nome as aluno_nome, p.nome as professor_nome from aluno as a, professor as p;
+
+select * from aluno where altura > 1.80;
+
+
+
+
+
+
+
+create schema if not exists redesocial default character set utf8;
+use redesocial;
+
+create table usuario(
+id int not null,
+nome_usuario varchar(10),
+senha varchar(10),
+email varchar(100),
+email varchar(100),
+primary key (id)
+)
+engine = InnoDB;
+
+
+
+create table perfil(
+id int not null,
+nome varchar(255),
+sexo tinyint(1),
+profissao varchar(255),
+onde_estudou varchar(255),
+hobbies varchar(255),
+gosto_musical varchar(255),
+primary key (id),
+foreign key (id) references usuario(id)
+)
+engine =InnoDB;
